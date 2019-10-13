@@ -1,0 +1,39 @@
+{
+  "name": "web-editor",
+  "version": "0.0.1",
+  "description": "offline web editor.",
+  "main": "web-editor.js",
+  "scripts": {
+    "build": "npm run lint && tsc ./src/main.ts --module commonjs --outDir ./dist",
+    "lint": "tslint --project . ./src/*.ts"
+  },
+  "bin": {
+    "web-editor": "./web-editor.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KHC-ZhiHao/web-editor.git"
+  },
+  "keywords": [
+    "editor",
+    "web"
+  ],
+  "author": "khczhihao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KHC-ZhiHao/web-editor/issues"
+  },
+  "homepage": "https://github.com/KHC-ZhiHao/web-editor#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "commander": "^3.0.0",
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0",
+    "typescript": "^3.6.4"
+  },
+  "devDependencies": {
+    "@types/node": "^12.7.12",
+    "tslint": "^5.20.0",
+    "tslint-config-standard": "^8.0.1"
+  }
+}

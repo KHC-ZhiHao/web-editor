@@ -1,0 +1,39 @@
+/* layout */
+
+#app {
+    height: 100vh;
+}
+
+#nav {
+
+}
+
+#content {
+
+}
+
+/* style */
+
+.flex{
+    display: -webkit-flex;
+    display: flex;
+    flex-basis : auto;
+}
+
+.flex-middle{
+    vertical-align: middle;
+    -webkit-align-items: center;
+            align-items: center;
+}
+
+.spacer{
+    box-flex: 1!important;
+    -webkit-box-flex: 1!important;
+    -ms-flex-positive: 1!important;
+    flex-grow : 1 !important;
+}
+
+.fill{
+    height: 100%;
+    overflow-y: auto;
+}
