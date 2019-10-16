@@ -6,4 +6,4 @@ program
     .version('0.0.1')
     .parse(process.argv)
 
-main(process.argv)
+main(__dirname, process.argv[2] || '3000')

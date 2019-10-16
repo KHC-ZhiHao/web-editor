@@ -1,5 +1,5 @@
 <template>
-    <i style="font-size : 22px" :class="'mdi mdi-' + i" ></i>
+    <i style="font-size : 1.4em" :class="'mdi mdi-' + i" ></i>
 </template>
 
 <script>

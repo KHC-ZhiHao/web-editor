@@ -1,34 +1,49 @@
 import * as fs from 'fs'
-import * as path from 'path'
+import * as pathModule from 'path'
 import configs from './configs'
 
 class Menu {
 
-    public type:string
-    public path:fs.PathLike
-    public files:Array<Menu>
+    public name: string
+    public type: string
+    public path: fs.PathLike
+    public dirs: Array<Menu> = []
+    public files: object = {}
 
-    constructor(type: string, path: fs.PathLike) {
-        this.type = type
+    constructor (path: fs.PathLike = '.') {
         this.path = path
+        this.name = pathModule.basename(path.toString())
+    }
+
+    get (): object {
+        this.refresh()
+        let dirs = {}
+        for (let dir of this.dirs) {
+            dirs[dir.name] = dir.get()
+        }
+        return {
+            dirs,
+            files: this.files
+        }
     }
 
     refresh (): void {
         let files = fs.readdirSync(this.path)
-        for (let file of files) {
-            let p = this.path + '/' + file
-            let name = path.basename(file)
-            let state = fs.statSync(file)
+        this.dirs = []
+        this.files = {}
+        for (let name of files) {
+            let path = this.path + '/' + name
+            let state = fs.statSync(path)
             if (configs.ignoreFiles.includes(name)) {
                 continue
             }
             if (state.isDirectory()) {
-                this.files.push(new Menu('dir', p))
+                this.dirs.push(new Menu(path))
             } else {
-                this.files.push(new Menu('file', p))
+                this.files[name] = path
             }
         }
     }
 }
 
-export default new Menu('dir', './')
+export default Menu

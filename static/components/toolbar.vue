@@ -1,29 +1,5 @@
 <template>
-    <ul class="nav flex flex-middle bg-primary">
-        <li class="nav-item">
-            <v-btn theme="light" icon="content-save"></v-btn>
-        </li>
+    <ul class="nav flex flex-middle px-2 py-1" style="height:5%">
+        <slot></slot>
     </ul>
 </template>
-
-<style>
-    #remember-save {
-        color: #FFF;
-    }
-</style>
-
-<script>
-    module.exports = {
-        data() {
-            return {
-
-            }
-        },
-        watch: {
-
-        },
-        methods: {
-
-        }
-    }
-</script>

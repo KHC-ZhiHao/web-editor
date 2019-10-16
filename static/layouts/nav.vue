@@ -1,6 +1,12 @@
 <template>
-    <div id="side-bar" class="py-2 pr-3 pl-3">
-        <button class="btn btn-block">OuO</button>
+    <div id="side-bar" class="p-0">
+        <v-toolbar>
+            <v-btn @click="refresh()" title="Refresh" icon="refresh"></v-btn>
+        </v-toolbar>
+        <hr class="my-0">
+        <div v-if="menu" class="p-2">
+            <v-menu :data="menu">
+        </div>
     </div>
 </template>
 
@@ -11,5 +17,21 @@
 </style>
 
 <script>
-    module.exports = {}
+    module.exports = {
+        data() {
+            return {
+                menu: null
+            }
+        },
+        mounted() {
+            this.refresh()
+        },
+        methods: {
+            refresh() {
+                axios.get('./apis/menu').then(({ data }) => {
+                    this.menu = data
+                })
+            }
+        }
+    }
 </script>
