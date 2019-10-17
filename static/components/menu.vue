@@ -28,6 +28,7 @@
 
     .itme-menu .itme-menu-file {
         cursor: pointer;
+        user-select: none;
         list-style-type: none;
     }
 

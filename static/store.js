@@ -2,6 +2,7 @@ export default class {
     constructor() {
         this.view = null
         this.origin = null
+        this.loading = false
         this.codemirrorOptions = {
             mode: null,
             lineNumbers: true,
@@ -48,12 +49,14 @@ export default class {
         }
         let ext = name.split('.').pop()
         let params = { path }
-        this.view = { name, path, data: null }
-        this.origin = null
-        this.setMode(ext)
-        axios.get('./apis/open', { params }).then(({ data }) => {
-            this.origin = data.text
-            this.view.data = data.text
+        axios.get('./apis/open', { params }).then(result => {
+            this.setMode(ext)
+            this.origin = result.data.text
+            this.view = {
+                name,
+                path,
+                data: result.data.text
+            }
         })
     }
 
