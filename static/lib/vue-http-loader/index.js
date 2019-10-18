@@ -1,3 +1,3 @@
-import Loader from './src/loader.js'
+import Loader from './loader.js'
 
 export default new Loader()

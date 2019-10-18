@@ -1,6 +1,6 @@
 {
   "name": "web-browser-editor",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "offline web editor.",
   "main": "web-editor.js",
   "scripts": {
