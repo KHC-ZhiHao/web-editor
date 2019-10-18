@@ -8,6 +8,7 @@
                     <v-menu :data="dir" :name="name">
                 </li>
                 <li class="itme-menu-file" @click="openFile(name, path)" v-for="(path, name) in data.files" :key="name">
+                    <v-icon :i="getFileIcon(name)"></v-icon>
                     {{ name }}
                 </li>
             </ul>
@@ -19,6 +20,7 @@
     .itme-menu {
         margin: 0;
         padding: 0;
+        white-space:nowrap;
         list-style-type: none;
     }
 
@@ -30,15 +32,21 @@
         cursor: pointer;
         user-select: none;
         list-style-type: none;
+        white-space:nowrap;
     }
 
     .itme-menu .itme-menu-file:hover {
-        background-color: #DDD;
+        color: slateblue
     }
 
     .itme-menu-caret {
+        white-space:nowrap;
         cursor: pointer;
         user-select: none;
+    }
+
+    .itme-menu-caret:hover {
+        color: slateblue
     }
 
     .itme-menu-caret::before {
@@ -69,6 +77,37 @@
             },
             openFile(name, path) {
                 this.store.open(name, path)
+            },
+            getFileIcon(name) {
+                let ext = name.split('.').pop()
+                if (ext === 'js') {
+                    return 'language-javascript'
+                }
+                if (ext === 'json') {
+                    return 'json'
+                }
+                if (ext === 'php') {
+                    return 'language-php'
+                }
+                if (ext === 'vue') {
+                    return 'vuejs'
+                }
+                if (ext === 'cpp' || ext === 'h') {
+                    return 'language-cpp'
+                }
+                if (ext === 'py') {
+                    return 'language-python'
+                }
+                if (ext === 'html') {
+                    return 'language-html5'
+                }
+                if (ext === 'css') {
+                    return 'language-css3'
+                }
+                if (ext === 'ts') {
+                    return 'language-typescript'
+                }
+                return 'file'
             }
         }
     }
