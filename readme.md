@@ -7,14 +7,14 @@ Web Editor is CLI tool that browser as an editor to help you get good experience
 ## Install
 
 ```bash
-npm install web-editor -g
+npm install web-browser-editor -g
 ```
 
 ## How To USE
 
 ```bash
 cd "to your source folder."
-web-editor [port] [ip]
+wb-editor [port] [ip]
 ```
 
 > port default 3000 and ip is localhost.

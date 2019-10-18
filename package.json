@@ -1,5 +1,5 @@
 {
-  "name": "web-editor",
+  "name": "web-browser-editor",
   "version": "0.0.1",
   "description": "offline web editor.",
   "main": "web-editor.js",
@@ -8,7 +8,7 @@
     "lint": "tslint --project . ./src/*.ts"
   },
   "bin": {
-    "web-editor": "./web-editor.js"
+    "wb-editor": "./web-editor.js"
   },
   "repository": {
     "type": "git",
