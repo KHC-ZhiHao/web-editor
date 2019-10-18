@@ -36,6 +36,8 @@ export default class {
                 return this.codemirrorOptions.mode = "text/x-vue"
             case "js":
                 return this.codemirrorOptions.mode = 'javascript'
+            case "ts":
+                return this.codemirrorOptions.mode = 'text/typescript'
             case "json":
                 return this.codemirrorOptions.mode = 'javascript'
             default:

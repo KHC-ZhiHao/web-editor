@@ -14,7 +14,7 @@ var Server = /** @class */ (function () {
         this.host = "http://" + ip + ":" + port;
         this.server = http.createServer(this.app);
         this.server.listen(port, ip, function () {
-            console.log(_this.host);
+            console.log('Your web editor : ' + _this.host);
         });
     }
     Server.prototype.get = function (path, callback) {

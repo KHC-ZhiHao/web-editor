@@ -16,7 +16,7 @@ class Server {
         this.host = `http://${ip}:${port}`
         this.server = http.createServer(this.app)
         this.server.listen(port, ip, () => {
-            console.log(this.host)
+            console.log('Your web editor : ' + this.host)
         })
     }
 
