@@ -1,7 +1,6 @@
 export default class {
     constructor() {
         this.view = null
-        this.origin = null
         this.loading = false
         this.codemirrorOptions = {
             mode: null,
@@ -53,22 +52,11 @@ export default class {
         let params = { path }
         axios.get('./apis/open', { params }).then(result => {
             this.setMode(ext)
-            this.origin = result.data.text
             this.view = {
                 name,
                 path,
                 data: result.data.text
             }
-        })
-    }
-
-    save() {
-        let parmas = {
-            path: this.view.path,
-            data: this.view.data
-        }
-        axios.post('./apis/save', parmas).then(() => {
-            this.origin = this.view.data
         })
     }
 }
